@@ -1,0 +1,114 @@
+
+There are two different types of data 
+    - Basic Data types 
+        - int
+        - double
+        - char
+        - boolean
+    - Reference types (pointer variables)
+        - arrays
+        - objects 
+        - strings
+        - "files"/scanner
+        ** for reference type variables, you need to both do the pointer bit and the other part, i.e. you need to do scanner cin and also cin=_____**
+
+
+IN JAVA all arguments to functions are pass by value but... if you have a reference type, you are passing the pointer to the big thing, not the thing itself 
+    - reference types pass the pointer reference instead of what it is referencing 
+    - basically 
+        - using reference types, it works the same way as pass-by-reference 
+        - using basic types, it works the same way as pass-by-value
+
+Now we use electricity to pass information stored in binary (0 low voltage, 1 high voltage) to pass information
+    - combine wires with gates which then outputs based on a function of inputs 
+        - and gates using and, or gates using inclusive or gates, not gates, or exclusive or gates (think truth tables)
+    - and, or, and not are enough to build computers
+
+Things we store in computers:
+    - numbers
+    - letters 
+    - strings
+    - uhhh everything else 
+
+Binary 
+    - Binary <--> Decimal (base 10)
+        - D --> B
+            - take the number and divide it by 2 
+            - ex. 6
+                - 6/2=3 r 0
+                - 3/2=1 r 1
+                - 1/2=0 r 1
+                - binary: 110
+            - ex. 17 
+                -17/2=8 r 1
+                -8/2=4 r 0
+                -4/2=2 r 0
+                -2/2=1 r 0
+                1/2=0 r 1
+                binary= 10001
+        - B --> D  
+            - take the number and split it into a multiplication problem with exponents
+            - ex. 10001
+                - 1*2^4 + 0*2^3 + 0*2^2 + 0*2^1 + 1*2^0
+                = 16 + 0 + 0 + 0 + 1
+            -ex. 1100101
+                - 1*2^6 + 1*2^5 + 1*2^2 + 1*2^0
+                - 64+32+4+1 = 101
+    - Binary <--> hexadecimal (base 16)
+        - B --> H
+            - in base 16 we can use: 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 
+                - F here is 15
+            - 0 = 0000
+            - 1 = 0001
+            - 2 = 0010
+            - 3 = 0011
+            - 4 = 0100
+            - 5 = 0101
+            - 6 = 0110
+            - 7 = 0111
+            - 8 = 1000
+            - 9 = 1001
+            - A = 1010
+            - B = 1011
+            - C = 1100
+            - D = 1101
+            - E = 1110
+            - F = 1111
+
+            - 1100111011001 =  0001 1001 1101 1001 = 19D9
+        - H --> B 
+            - ABC = 1010 1011 1100
+            - 100 = 0001 0000 0000
+
+Subtraction? 
+    - 78-39=? 
+        - 78+61=139 ---- ignore the 1 becuase it isnt in the storage memory 
+    -39147-21860 = ?
+        - 39147+78140=17287 --- ignore the 1 
+    - But how do we get that second number? 
+        - find the number that adds to make it the next highest power of 10
+
+    - in binary == flip all the bits and then add 1
+        - 100110-011011=?
+            - 100110+100101 = 1001011 ---- ignore the first 1
+
+
+Terms
+    - Class: programmer-defined data type 
+        - to define a class you have 2 different pieces:
+            - beta members aka variables 
+            - member functions/methods aka functions within the class
+                - these functions act on the fish class
+                - ex. print the fish on the screen
+                - there are 4 types of methods:
+                    - constructor: this builds the object 
+                    - observer/accessor: these don't change the object (i.e. print)
+                    - mutators/transformers/setters: these do change the object (i.e. +, -, or =)
+                    - iterator: this is something that loops through a collection (i.e. for or while)
+    - Object: variable of a class type
+
+
+
+    // public means it is usable outside the class
+    // static means shared among all objects in a given class AND it exists no matter how many objects of that class exist - inlcuding 0
+    // aka static ALWAYS exists

@@ -1,0 +1,10 @@
+9
+Nemo orange clownfish 7
+Angela blue angelfish 7
+Polly purple parrotfish 5
+Creature blue monsterfish 7
+Spongebob yellow sponge 0
+Patrick pink starfish 0
+Squidward gray squid 0
+BG brown bluegill 6
+Bruce grey shark 5

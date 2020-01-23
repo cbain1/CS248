@@ -1,0 +1,15 @@
+catherinebain > javac esp.java
+catherinebain > java esp
+Please enter the name of your file: 
+esp.txt
+There are 6 scores in the file.
+The minimum value is 72
+The maximum value is 92
+The mean is 82.5
+The median value is 83.0
+There are 1 As in the file.
+There are 3 Bs in the file.
+There are 2 Cs in the file.
+There are 0 Ds in the file.
+There are 0 Fs in the file.
+catherinebain > 
