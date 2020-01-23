@@ -2,15 +2,17 @@ import java.util.*;
 
 public class Rooms {
 
+    
     int room;
     int ad1;
     int ad2;
     int ad3;
+    int assignment;
     String description;
-    Boolean spiders;
-    Boolean pit;
-    Boolean wumpus;
-    Boolean storage;
+    Boolean isSpiders;
+    Boolean isPits;
+    Boolean isWumpus;
+    Boolean isStorage;
 
     public Rooms(Scanner in) {
         room = in.nextInt();
@@ -19,7 +21,12 @@ public class Rooms {
         ad3 = in.nextInt();
         in.nextLine();
         description = in.nextLine();
+        spiders = false;
+        pit = false;
+        wumpus= false;
+        storage = false;
     }
+
     public void printLocation() {
          System.out.println("You are currently in room "+room);
     }
@@ -33,14 +40,12 @@ public class Rooms {
     public Boolean check(int choice) {
         return choice == ad1 || choice == ad2 || choice == ad3;
     }
-    
-    public int generateRandom(int size) {
-        int randomNumber;
-        while (randomNumber == lastRandomNumber) {
-            randomNumber = random.nextInt(size);
-        }
-        lastRandomNumber = randomNumber;
-        return randomNumber;
+
+    public Boolean hazard() {
+        return isWumpus || isSpiders || isPits || isStorage;
     }
+    
+    
+
 
 }
