@@ -21,10 +21,10 @@ public class Rooms {
         ad3 = in.nextInt();
         in.nextLine();
         description = in.nextLine();
-        spiders = false;
-        pit = false;
-        wumpus= false;
-        storage = false;
+        isSpiders = false;
+        isPits = false;
+        isWumpus= false;
+        isStorage = false;
     }
 
     public void printLocation() {
