@@ -2,6 +2,16 @@ import java.io.*;
 import java.util.*;
 
 public class fishMain2 {
+
+    public static Comparable max(Comparable [] list) {
+        Comparable maxsofar=list[0];
+        for (int i=0; i<list.length; i++) {
+            if(list[i].compareTo(maxsofar)>0)
+                maxsofar=list[i];
+        }
+        return maxsofar;
+
+    }
     // so... what does this statement here mean?
     // public means it is usable outside the class
     // static means shared among all objects in a given class AND it exists no matter how many objects of that class exist - inlcuding 0

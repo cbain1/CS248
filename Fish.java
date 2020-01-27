@@ -1,6 +1,6 @@
 import java.util.*;
 /** @author Catherine  */
-class Fish {
+public class Fish implements Comparable {
     // first we will add our data members
     String name;
     String color;
@@ -40,6 +40,24 @@ class Fish {
         public String getSpecies() {return species;}
         public String getColor() {return color;}
         public int getFins() {return fins;}
+
+        public int compareTo(Object x) {
+            // but is it a fish thought?
+            if (x instanceof Fish) {
+                Fish f=(Fish)x;
+                // lets compare by name
+                // return name.compareTo(f.getName());
+                //by fins
+                if(fins<f.getFins()) return -1;
+                if(fins==getFins()) return 0;
+                return 1;
+            }
+            else {//panic
+                System.out.println("Error: You can only compare fish to fish, duh!");
+                System.exit(1);
+            }
+            return 0;
+        }
 
         //now we shall write a mutator
         public void sharkAttack() {

@@ -112,3 +112,6 @@ Terms
     // public means it is usable outside the class
     // static means shared among all objects in a given class AND it exists no matter how many objects of that class exist - inlcuding 0
     // aka static ALWAYS exists
+
+    - Interface: a list of function prototypes (i.e. the return type and the number and type of arguments) 
+        - main idea: describes behavior of classes that implement the interface
