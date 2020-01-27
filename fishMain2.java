@@ -12,10 +12,7 @@ public class fishMain2 {
         return maxsofar;
 
     }
-    // so... what does this statement here mean?
-    // public means it is usable outside the class
-    // static means shared among all objects in a given class AND it exists no matter how many objects of that class exist - inlcuding 0
-    // aka static ALWAYS exists
+
     public static final int frenzySize = 20;
     static void feedingFrenzy(Fish [] A) {
         for (int i=0; i<frenzySize; i++) {
@@ -40,6 +37,11 @@ public class fishMain2 {
         for(int i=0; i<school.length; i++) {
             school[i].print();
         }
+
+        Fish big;
+        big=(Fish)max(school);
+        System.out.println("The largest fish is ");
+        big.print();
 
         in.close();
     }
