@@ -1,5 +1,0 @@
-catherinebain > java Year3000
-1800: Wendesday January 1, 1800
-1000: Monday January 1, 1000
-3000: Wendesday January 1, 3000
-Today's Date is: Tuesday January 20, 2020
