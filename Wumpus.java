@@ -9,14 +9,17 @@ public class Wumpus {
         Scanner in = new Scanner(new FileReader("wumpusRooms.txt")); 
 
         int size = in.nextInt();
-        int spiders = in.nextInt();
-        int pits = in.nextInt();
+        int TuskenRaider = in.nextInt();
+        int quicksand = in.nextInt();
         Boolean isPAlive = true;
         char action;
         Boolean isPossible;
         int choice;
-        int arrows = 3;
+        int ammo = 3;
         int location = 0;
+
+        //Scanner to obtain what the player wants to do?
+        Scanner cin = new Scanner(System.in);
 
         
         Rooms map[] = new Rooms[size];
@@ -24,34 +27,46 @@ public class Wumpus {
         for (int x = 0; x <size; x++) { 
             map[x] = new Rooms(in);
         }
-        int randomNumber;
-        randomNumber = (int) Math.random()*(size-1)+1;
-            map[randomNumber].isWumpus = true;
 
-        assignSpiders(spiders, map);
+        assignHazards(TuskenRaider, quicksand, map);
+            for(int x=0; x<map.length; x++) {
+                if(map[x].isTuskenRaider) {
+                    System.out.println("Tusken Raiders in room ");
+                    map[x].printCheck();
+                }
+                if(map[x].isQuicksand) {
+                    System.out.println("Quicksand in room ");
+                    map[x].printCheck();
+                }
+                if(map[x].isStorage) {
+                    System.out.println("Storage in room ");
+                    map[x].printCheck();
+                }
+                if(map[x].isBountyHunter) {
+                    System.out.println("Bounty Hunter in room ");
+                    map[x].printCheck();
+                }
+                if(map[x].isJawa) {
+                    System.out.println("Jawa in room ");
+                    map[x].printCheck();
+                }
+            }
 
-        assignPits(pits, map);
-
-        assignStorage(map);
-
-        
+            
         while (isPAlive) {
             map[location].printLocation();
             map[location].printDescription();
             map[location].printTunnels();
-            System.out.println("You have "+arrows+" left.");
-            if(map[map[location].ad1].isSpiders || map[map[location].ad2].isSpiders || map[map[location].ad3].isSpiders) 
-                System.out.println("You hear clicking...");
-            if(map[map[location].ad1].isPits || map[map[location].ad2].isPits || map[map[location].ad3].isPits) 
-                System.out.println("You smell a muggy smell.");
-            if(map[map[location].ad1].isWumpus || map[map[location].ad2].isWumpus || map[map[location].ad3].isWumpus) 
-                System.out.println("You smell a smelly smell... that smells like Wumpus");
-
+            System.out.println("You have "+ammo+" blasts left.");
+            if(map[map[location].ad1-1].isTuskenRaider || map[map[location].ad2-1].isTuskenRaider || map[map[location].ad3-1].isTuskenRaider) 
+                System.out.println("You hear braying...");
+            if(map[map[location].ad1-1].isQuicksand || map[map[location].ad2-1].isQuicksand || map[map[location].ad3-1].isQuicksand) 
+                System.out.println("You sense the ground may not be so stable.");
+            if(map[map[location].ad1-1].isBountyHunter || map[map[location].ad2-1].isBountyHunter|| map[map[location].ad3-1].isBountyHunter) 
+                System.out.println("You hear the faint beeping of a tracker");
+            
             System.out.println("(M)ove or (S)hoot?");
 
-
-            //Scanner to obtain what the player wants to do?
-            Scanner cin = new Scanner(System.in);
             action = cin.next().charAt(0);
 
 
@@ -65,72 +80,108 @@ public class Wumpus {
                     System.out.println("(M)ove or (S)hoot?");
                     action = cin.next().charAt(0);
                 }
-                else if (isPossible) {
+                else {
                     if (action == 'M') {
                         location=choice-1;
+                        if(map[location].isBountyHunter) {
+                            System.out.println("You encountered the Bounty Hunter and been killed. Sorry.");
+                            System.exit(0);
+                        }
+                        if(map[location].isTuskenRaider) {
+                            System.out.println("You encountered some Tusken Raiders and were killed. Sorry");
+                            System.exit(0);
+                        }
+                        if(map[location].isQuicksand) {
+                            System.out.println("You got sucked into some quicksand and died. Sorry");
+                            System.exit(0);
+                        }
+                        if(map[location].isStorage) {
+                            System.out.println("Congrats, you found the storage room.");
+                            ammo = 3;
+                        }
+                        if(map[location].isJawa) {
+                            System.out.println("Looks like you encountered the Jawa. They took you in their sandcrawler and then threw you out.");
+                            location = getRandomInteger(map.length-1, 0);
+                            if(map[location].isBountyHunter) {
+                                System.out.println("You encountered the Bounty Hunter and been killed. Sorry.");
+                                System.exit(0);
+                            }
+                            if(map[location].isTuskenRaider) {
+                                System.out.println("You encountered some Tusken Raiders and were killed. Sorry");
+                                System.exit(0);
+                            }
+                            if(map[location].isQuicksand) {
+                                System.out.println("You got sucked into some quicksand and died. Sorry");
+                                System.exit(0);
+                            }
+                            if(map[location].isStorage) {
+                                System.out.println("Congrats, you found the storage room.");
+                                ammo = 3;
+                            }
+                        }
                         action='D';
                     }
                     //if they chose to shoot
                     else {
-                        System.out.println("Which room do you want to shoot into to?");
-                        choice = cin.nextInt();
-                        arrows--; 
-                        if(map[choice-1].isSpiders)
-                            System.out.println("Congrats you killed some spiders.");
-                        if(map[choice-1].isWumpus) {
-                            System.out.println("Way to go! You killed the wumpus!");
-                            break;
+                        ammo--; 
+                        if(map[choice-1].isTuskenRaider)
+                            System.out.println("Your blaster found itself in the leg of a Tusken Raider... he is not so happy with you.");
+                        if(map[choice-1].isBountyHunter) {
+                            System.out.println("Way to go! You surprised the Bounty Hunter and killed him!");
+                            System.out.println("Congrats you beat the game.");
+                            System.exit(0);
                         }
                         else 
-                            System.out.println("Way to waste an arrow, that did nothing.");
+                            System.out.println("Way to wasted a shot, that did nothing.");
                     }  
-                        //this is where you need to tell the user if they missed or if they shot something ---- to do this you must firsr assign the monsters to rooms 
-                        // if they win tell them they win and the game is over
-                        // if they lose, tell them they lost an arrow and they hit nothing
-                        System.out.println("You how have "+arrows+" arrows.");
-                        action = cin.next().charAt(0);  
+                        System.out.println("You now have "+ammo+" blasts left.");
+                        action = 'D';
                 }
-            }
-                cin.close();   
+            }  
         }  
-        System.out.println("Congrats you beat the game.");  
     }
 
         
       // = in.nextLine();
-    public static int generateRandom(int size) {
-        return (int) Math.random()*(size-1)+1;
+
+    public static int getRandomInteger(int maximum, int minimum){
+        return ((int) (Math.random()*(maximum - minimum))) + minimum;
     }
 
-    public static void assignSpiders(int spiders, Rooms [] map) {
+    public static void move(int location, int choice, Rooms [] map, int ammo) {
+        
+    }
+
+    public static void assignHazards(int spiders, int pits, Rooms [] map) {
+        int assignment = getRandomInteger(map.length-1,1);
+        map[assignment].isBountyHunter = true;
         for (int i=0;i<spiders;i++) {
-            int assignment = generateRandom(map.length);
+            assignment = getRandomInteger(map.length-1,1);
             if (map[assignment].hazard())
                 i--;
             else
-                map[assignment].isSpiders = true;  
+                map[assignment].isTuskenRaider = true;
         }
-    }
-
-    public static void assignPits(int pits, Rooms [] map) {
         for (int i=0;i<pits;i++) {
-            int assignment = generateRandom(map.length);
+            assignment = getRandomInteger(map.length-1,1);
             if (map[assignment].hazard())
                 i--;
             else
-                map[assignment].isPits = true;  
+                map[assignment].isQuicksand = true;  
         }
-    }
-
-    public static void assignStorage(Rooms [] map) {
         for (int i=0;i<1;i++) {
-            int assignment = generateRandom(map.length);
+            assignment = getRandomInteger(map.length-1,1);
             if (map[assignment].hazard())
                 i--;
             else
                 map[assignment].isStorage = true;  
         }
+        for (int i=0;i<1;i++) {
+            assignment = getRandomInteger(map.length-1,1);
+            if(map[assignment].hazard())
+                i--;
+            else
+                map[assignment].isJawa = true;
+        }
     }
-
-
 }

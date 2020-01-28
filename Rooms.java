@@ -9,10 +9,11 @@ public class Rooms {
     int ad3;
     int assignment;
     String description;
-    Boolean isSpiders;
-    Boolean isPits;
-    Boolean isWumpus;
+    Boolean isTuskenRaider;
+    Boolean isQuicksand;
+    Boolean isBountyHunter;
     Boolean isStorage;
+    Boolean isJawa;
 
     public Rooms(Scanner in) {
         room = in.nextInt();
@@ -21,20 +22,24 @@ public class Rooms {
         ad3 = in.nextInt();
         in.nextLine();
         description = in.nextLine();
-        isSpiders = false;
-        isPits = false;
-        isWumpus= false;
+        isTuskenRaider = false;
+        isQuicksand = false;
+        isBountyHunter = false;
         isStorage = false;
+        isJawa = false;
     }
 
     public void printLocation() {
-         System.out.println("You are currently in room "+room);
+        System.out.println("You are currently in room "+room);
+    }
+    public void printCheck () {
+        System.out.println(room);
     }
     public void printDescription() {
-         System.out.println(description);
+        System.out.println(description);
     }
     public void printTunnels () {
-         System.out.println("There are tunnels to rooms "+ad1+","+ad2+", and "+ad3);
+        System.out.println("There are tunnels to rooms "+ad1+","+ad2+", and "+ad3);
     }
 
     public Boolean check(int choice) {
@@ -42,10 +47,6 @@ public class Rooms {
     }
 
     public Boolean hazard() {
-        return isWumpus || isSpiders || isPits || isStorage;
+        return isBountyHunter || isTuskenRaider || isQuicksand|| isStorage;
     }
-    
-    
-
-
 }

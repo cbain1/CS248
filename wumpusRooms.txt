@@ -1,21 +1,30 @@
-10 2 2
-1 2 6 10
-A wooden sign reads "Beware of the Wumpus!"
-2 1 3 7
-There is a black pool of water in the corner.
-3 2 4 8
-You see a Tyrannosaurus Rex fossil embedded in the wall.
-4 3 5 9
-There is an empty Diet Rite can here.
-5 4 6 10
-You almost step on a broken cellular phone.
-6 1 5 7
-A couple of evil rats stare at you from under a pile of rocks.
-7 2 6 8
-You find a Spanish doubloon on the floor.
-8 3 7 9
-The ceiling is very low and you have to stoop.
-9 4 8 10
-You step on a slippery spot, slip, and fall on your keester.
-10 1 5 9
+14 3 2
+1 2 12 11
+A wooden sign reads "Beware of the Bounty Hunter!"
+2 3 1 11
+There is a suspicious vehicle next to you.
+3 4 2 10
+You see bolts next to you in the sand.
+4 5 3 7
+There is a broken blaster here, sad it doesn't work anymore... that would have been useful.
+5 6 4 13
+You almost step on a broken tracker.
+6 7 5 14
+A couple of rats stare at you from under a pile of rocks.
+7 6 4 12
+You find a discarded  binary load lifter.
+8 5 13 14
+The ground above you begins to shake.
+9 4 14 10
+You almost step in quicksand.
+10 3 9 13
 You get a strong sense of deja vu.
+11 2 1 12
+You see some boots.
+12 1 7 11
+You spot a torn rope ahead.
+13 8 5 10
+Looks like a droid broke down here.
+14 9 6 8
+You spot a faulty hyperdrive to your left. 
+

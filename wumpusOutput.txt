@@ -1,0 +1,50 @@
+catherinebain > java Wumpus
+Storage in room 
+2
+Bounty Hunter in room 
+3
+Quicksand in room 
+4
+Tusken Raiders in room 
+6
+Quicksand in room 
+7
+Tusken Raiders in room 
+9
+Jawa in room 
+11
+Tusken Raiders in room 
+13
+You are currently in room 1
+A wooden sign reads "Beware of the Bounty Hunter!"
+There are tunnels to rooms 2,12, and 11
+You have 3 blasts left.
+(M)ove or (S)hoot?
+M
+Which room?
+12
+You now have 3 blasts left.
+You are currently in room 12
+You spot a torn rope ahead.
+There are tunnels to rooms 1,7, and 11
+You have 3 blasts left.
+You sense the ground may not be so stable.
+(M)ove or (S)hoot?
+M
+Which room?
+11
+Looks like you encountered the Jawa. They took you in their sandcrawler and then threw you out.
+Congrats, you found the storage room.
+You now have 3 blasts left.
+You are currently in room 2
+There is a suspicious vehicle next to you.
+There are tunnels to rooms 3,1, and 11
+You have 3 blasts left.
+You hear the faint beeping of a tracker
+(M)ove or (S)hoot?
+S
+Which room?
+3
+Way to go! You surprised the Bounty Hunter and killed him!
+Congrats you beat the game.
+catherinebain > 
