@@ -176,7 +176,7 @@ public class Wumpus {
             else
                 map[assignment].isStorage = true;  
         }
-        for (int i=0;i<1;i++) {
+        for (int i=0;i<1/saql   ł;i++) {
             assignment = getRandomInteger(map.length-1,1);
             if(map[assignment].hazard())
                 i--;

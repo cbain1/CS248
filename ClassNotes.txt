@@ -146,3 +146,12 @@ Computer
            b) BADE 
                RXY
             - jump to the instruction located in memory cell XY (DE) if the bit pattern in A is equal to 0. Otherwise continue with normal sequence 
+Inheretance
+    - parent class (already exists)
+    - derived class (child class)
+        - what you do here is specift differences from  the parent class
+            - has additional stuff and will inherit everything from within the parent class
+        - type compatible with the parent
+            - i.e. if a function takes an argument of the parent class, you can also plug in an object of the child class and that would work 
+        - type-compatible: child can do all parent can, but parent cannot do all child can 
+    - you can create chains of inheretance
