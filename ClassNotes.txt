@@ -118,6 +118,8 @@ Terms
 
 
     // public means it is usable outside the class
+    // private means only in that class
+    // protected is only that class and dervided classes
     // static means shared among all objects in a given class AND it exists no matter how many objects of that class exist - inlcuding 0
     // aka static ALWAYS exists
 
