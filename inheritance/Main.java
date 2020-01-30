@@ -1,3 +1,5 @@
+package inheritance;
+
 class Main {
 
     static void fun(Animal a) {

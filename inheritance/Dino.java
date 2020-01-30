@@ -1,3 +1,5 @@
+package inheritance;
+
 public class Dino extends Fish {
 
     int horns;

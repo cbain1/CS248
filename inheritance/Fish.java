@@ -1,3 +1,5 @@
+package inheritance;
+
 public class Fish extends Animal {
     int fins;
 

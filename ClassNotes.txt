@@ -157,3 +157,15 @@ Inheretance
             - i.e. if a function takes an argument of the parent class, you can also plug in an object of the child class and that would work 
         - type-compatible: child can do all parent can, but parent cannot do all child can 
     - you can create chains of inheretance
+
+Algorithm Analysis 
+    - algorithm: a series of steps that solves a problem
+        - more of an idea than an actual program -- like a generalized program that you could implement in any language
+    - How to pick an algorithm?
+        - Time? Cost? Memory?
+            - what can affect an algorithm speed?
+                - hardware, language, experience of the programmer writing the algorithm, compiler, operating system, size of the problem
+    - maximum contiguous subsequence sum 
+        - given a list of both positive and negative numbers 
+        - want to take a continguous (connected) portion of that list (subsequence) and add them together and maximize that sum
+            - i.e. -3+-4 is not as good as 7+8
