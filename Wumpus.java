@@ -29,30 +29,7 @@ public class Wumpus {
         }
 
         assignHazards(TuskenRaider, quicksand, map);
-            for(int x=0; x<map.length; x++) {
-                if(map[x].isTuskenRaider) {
-                    System.out.println("Tusken Raiders in room ");
-                    map[x].printCheck();
-                }
-                if(map[x].isQuicksand) {
-                    System.out.println("Quicksand in room ");
-                    map[x].printCheck();
-                }
-                if(map[x].isStorage) {
-                    System.out.println("Storage in room ");
-                    map[x].printCheck();
-                }
-                if(map[x].isBountyHunter) {
-                    System.out.println("Bounty Hunter in room ");
-                    map[x].printCheck();
-                }
-                if(map[x].isJawa) {
-                    System.out.println("Jawa in room ");
-                    map[x].printCheck();
-                }
-            }
 
-            
         while (isPAlive) {
             map[location].printLocation();
             map[location].printDescription();
@@ -71,6 +48,13 @@ public class Wumpus {
 
 
             while (action == 'M' || action == 'S') {
+                if (action == 'S' && ammo == 0) {
+                    System.out.println("You can't do that! Can you not read?"); 
+                    System.out.println("You have "+ammo+" blasts left.");
+                    map[location].printTunnels();
+                    System.out.println("(M)ove or (S)hoot?");
+                    action = cin.next().charAt(0);
+                }
                 System.out.println("Which room?");
                 choice = cin.nextInt();
                 isPossible = map[location].check(choice);
@@ -103,7 +87,7 @@ public class Wumpus {
                             System.out.println("Looks like you encountered the Jawa. They took you in their sandcrawler and then threw you out.");
                             location = getRandomInteger(map.length-1, 0);
                             if(map[location].isBountyHunter) {
-                                System.out.println("You encountered the Bounty Hunter and been killed. Sorry.");
+                                System.out.println("You encountered the Bounty Hunter and were killed. Sorry.");
                                 System.exit(0);
                             }
                             if(map[location].isTuskenRaider) {
@@ -126,15 +110,14 @@ public class Wumpus {
                         ammo--; 
                         if(map[choice-1].isTuskenRaider)
                             System.out.println("Your blaster found itself in the leg of a Tusken Raider... he is not so happy with you.");
-                        if(map[choice-1].isBountyHunter) {
+                        else if(map[choice-1].isBountyHunter) {
                             System.out.println("Way to go! You surprised the Bounty Hunter and killed him!");
                             System.out.println("Congrats you beat the game.");
                             System.exit(0);
                         }
                         else 
-                            System.out.println("Way to wasted a shot, that did nothing.");
+                            System.out.println("Way to waist a shot, that did nothing.");
                     }  
-                        System.out.println("You now have "+ammo+" blasts left.");
                         action = 'D';
                 }
             }  
@@ -176,7 +159,7 @@ public class Wumpus {
             else
                 map[assignment].isStorage = true;  
         }
-        for (int i=0;i<1/saql   ł;i++) {
+        for (int i=0;i<1; i++) {
             assignment = getRandomInteger(map.length-1,1);
             if(map[assignment].hazard())
                 i--;

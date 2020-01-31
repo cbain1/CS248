@@ -16,7 +16,7 @@ You find a discarded  binary load lifter.
 8 5 13 14
 The ground above you begins to shake.
 9 4 14 10
-You almost step in quicksand.
+You see a broken pit droid to your left.
 10 3 9 13
 You get a strong sense of deja vu.
 11 2 1 12
