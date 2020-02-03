@@ -1,5 +1,6 @@
 import java.util.*;
 
+// maximum contiguous sub sequence
 class MCSS {
 
 
@@ -9,10 +10,22 @@ class MCSS {
         for(int start=0; start<list.length; start++) {
             for (int stop=start; stop<list.length; stop++) {
                 int sum=0; 
-                for(int i=start; i<=stop; i++)
-                    sum=sum+list[i];
+                sum=sum+list[stop];
                 if(sum>max) 
                     max=sum;
+            }
+        }
+        return max;
+    }
+
+    static int alg2(int [] list) {
+        int max = 0; 
+        for(int start=0; start<list.length; start++) {
+            int sum =0;
+            for (int stop=start; stop<list.length; stop++) {
+                sum+=list[stop];
+                if(sum>max) max=sum;
+                
             }
         }
         return max;
@@ -36,5 +49,6 @@ class MCSS {
             System.out.print(list[i] + " ");
         }
         System.out.println("\n"+alg1(list));
+        System.out.println("\n"+alg2(list));
     }
 }

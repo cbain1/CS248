@@ -169,3 +169,39 @@ Algorithm Analysis
         - given a list of both positive and negative numbers 
         - want to take a continguous (connected) portion of that list (subsequence) and add them together and maximize that sum
             - i.e. -3+-4 is not as good as 7+8
+    -Big O notation: describes the growth rate of a function
+        - the running time as a function of input size ignoring constant factors and ignore lower-order terms
+        - f(n) = O(g(n))
+            if f(n) <= c*g(n)
+                for a construct c>0
+                and for large n 
+        - A(n) = running time of alg1 = O(n^3)
+        - B(n) = running time of alg2 = O(n^2)
+    - Example:
+        - f(n) = 3n^2 + 2071n-3
+            - so with this you would ignore the 3 and all terms after n^2
+    - Big O analysis of alg1 
+        - look at comments next to alg1 in the MCSS code
+        - all the lines are loops
+        - anything above the line is outside the loops
+        - anything below the lines is inside the loop
+          __1+1_________
+        n| 2+1
+         | n --------
+         | | 2   
+         | | 1+1 ________
+         | |   n |2
+         | |     |1
+         | | 2   |_________
+          ________________
+            1
+        
+        - translation: 3+n(3+n(6+3n))
+            - 3(outside all loops)+n(3(inside first loop)+n(6(inside second loop)+3(inside 3rd loop)n))
+            - 3n^3+6n^2+3n+3
+            - O(n^3)
+    - Big O for analysis of alg2
+        - 3 + n(4+5n)
+        - 3+4n+5n^2
+        - O(n^2)
+
