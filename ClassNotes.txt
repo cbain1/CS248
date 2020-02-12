@@ -205,3 +205,38 @@ Algorithm Analysis
         - 3+4n+5n^2
         - O(n^2)
 
+    - and sets bits to zero
+    - or sets bits to one 
+    - xor flips bits
+
+- Software Engineering
+    - study & practice of methods for building (large) software 
+    - software lifecycle
+        - requirement analysis
+        - design - algorithm of data structure 
+        - code - implementation of the algorithm 
+        - test(quality assurance) - make sure the code works
+            - black box testing
+            - white box testing 
+    - two design philosophies 
+        - top down, stepwise refinement
+        - bottom up, create complex behavior from simple behavior
+
+- Data Structure: a collection of data that is structured also has operations that act on the data
+    - we use classes to implement this
+    - types:
+        - stack -- use both arrays and link lists 
+            - so what is a stack: data structure where you always access from the top 
+                - last in first out (LIFO)
+                - insertion operation: push 
+                - removal operation: pop
+                    - both push and pop are transformers
+                - getTop: looks at the top of the stack  -- observer
+            - other stuff you may wanna know
+                - size
+                - isEmpty 
+                - isFull
+                - makeEmpty
+        - queue -- use both arrays and link lists 
+        - tree 
+        - priority queue
