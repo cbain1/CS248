@@ -1,0 +1,38 @@
+Applications of Stacks
+    - functions are run by a stack 
+    - runtime stack
+        - where are variables stored?
+            - stack (everything else)
+            - heap (new)
+            - global (static)
+    - math is a stack   
+        - specifically post fix uses a stack (23+ instead of 2+3)
+            - evaluating post-fix
+                - scan left to right:
+                    if its a number
+                        push
+                    if operator
+                        pop B
+                        pop A 
+                        push (A op B)
+Queue
+    - tis like an tube 
+    - put stuff in back and remove stuff from front 
+    _____________________
+   |                     |
+    ---------------------
+
+    - add stuff: enqueue
+    - remove stuff: dequeue
+    - getFront
+    - isFull
+    - isEmpty
+    - size
+    - makeEmpty 
+
+    - using an array
+        - basically position 0 is the front, and the highet position is the back
+        - once you dequeue something, just move where the front variable is 
+        - if you run over the end, you basically just requeue over stuff you dequeued already 
+            - think of this like a donut shaped array 
+            

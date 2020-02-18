@@ -59,6 +59,8 @@ public class Wumpus {
                 choice = cin.nextInt();
                 isPossible = map[location].check(choice);
                 if (!isPossible) {
+                    if(action == 'S')
+                        ammo--;
                     System.out.println("You can't do that! Can you not read?");
                     map[location].printTunnels();
                     System.out.println("(M)ove or (S)hoot?");
