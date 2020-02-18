@@ -36,3 +36,25 @@ Queue
         - if you run over the end, you basically just requeue over stuff you dequeued already 
             - think of this like a donut shaped array 
             
+Operating System 
+    - a program or set of programs that manages resources for the computer
+        - software packages
+        - memory management:
+            - virtual memory/paging: thomas makes each program think it has infinite memory available to it
+            - paging: finite memory available to them, but pages are given and taken away based on how you need them 
+                - certain set of pages that are part of your virtual memory, you can only write on those pages 
+                - this makes sure you don't write on someone elses program while its running 
+        - storage (disk) management 
+        - security/protection  
+            - you cant change someones program while its running 
+        - CPU management: who gets what memory/time
+            - in fact only one programming is running at once, but they switch so quickly that we think multiple things are running at once
+        - process management - giving processes CPU time
+            - process: program in execution
+                - has a user, memory allocated to it, CPU allocated to it
+    - parts of an operating system
+        - application software: stuff you can remove and the computer is still useful (i.e. photoshop, word, etc.)
+        - system software: stuff that does vital stuff like print
+        - kernel: the most important part of the operating system that manages all the stuff above
+        - device drivers: piece of software that translates between the operating system and the device
+        - device controller: controls the device and drivers
