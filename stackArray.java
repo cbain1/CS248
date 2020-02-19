@@ -1,5 +1,4 @@
-public class StackArray implements Stack, Collection
-{
+public class StackArray implements Stack {
 	int top;
 	Object [] items;
 	
