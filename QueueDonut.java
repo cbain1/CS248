@@ -2,12 +2,13 @@ class QueueDonut implements Queue {
     int front, back, count;
     Object [] donut;
 
-    public Queue(int maxSize) {
+    public QueueDonut(int maxSize) {
         donut = new Object[maxSize];
         front=0; 
         back=maxSize-1;
         count=0;
     }
+    public QueueDonut() {this(100);}
     public int size() {return count;}
     public boolean isEmpty() {return count <=0;}
     public boolean isFull() {return count>donut.length;}
@@ -26,6 +27,7 @@ class QueueDonut implements Queue {
         int oldFront = front;
         front++;
         if(front >=donut.length) front=0;
+        count--;
         return oldFront;
     }
     public Object getFront() {
