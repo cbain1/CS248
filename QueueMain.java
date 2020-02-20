@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class StackMain
+class QueueMain
 {
 	
 	public static void main(String [] args) throws IOException
@@ -10,14 +10,14 @@ class StackMain
 		int fishcount;
 		fishcount=ff.nextInt();
 		
-		Stack S=new StackArray();
+		Queue Q=new QueueDonut();
 		
 		for(int i=0; i<fishcount; i++)
 		{
-			S.push(new Fish(ff));
+			Q.enqueue(new Fish(ff));
 		}
 		
-		while(!S.isEmpty())
-			((Fish)S.pop()).print();
+		while(!Q.isEmpty())
+			((Fish)Q.dequeue()).print();
 	}
 }
