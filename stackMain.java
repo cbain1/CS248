@@ -10,7 +10,7 @@ class StackMain
 		int fishcount;
 		fishcount=ff.nextInt();
 		
-		Stack S=new StackArray();
+		Stack S=new StackLL();
 		
 		for(int i=0; i<fishcount; i++)
 		{

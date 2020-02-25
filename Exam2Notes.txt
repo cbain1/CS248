@@ -58,3 +58,17 @@ Operating System
         - kernel: the most important part of the operating system that manages all the stuff above
         - device drivers: piece of software that translates between the operating system and the device
         - device controller: controls the device and drivers
+
+Linked List
+    - another way to implement a stack
+    - works like a list in python in that it is a series of boxes that are connected by pointers, the last box has a null pointer
+        - head pointer tells us where to start --- with a stack this is just called the top
+    - push:
+        1. make new node
+        2. put D in data part of node 
+        3. point from D to top (aka C node)
+        4. move top pointer to point at D
+    - pop:
+        1. copy old top and save 
+        2. move top to one below 
+        3. return old top
