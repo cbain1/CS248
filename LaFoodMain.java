@@ -8,17 +8,18 @@ class LaFoodMain {
 		System.out.println("Please enter the name of your file: ");
         String name = in.nextLine();
 
-        Scanner cin = new Scanner(new FileReader(name));
-		
-		String line = cin.nextLine();
-		System.out.println(line);
-
-		
+		Scanner cin = new Scanner(new FileReader(name));
 		Queue Q=new LaFoodQueue();
 		
-		
-		while(!Q.isEmpty())
-			((Fish)Q.dequeue()).print();
+		while (cin.hasNext()) {
+			String action = cin.next();
+
+			if (action == "A") {
+				enqueue 
+			}
+		}
+
+
 		
 		in.close();
 		cin.close();

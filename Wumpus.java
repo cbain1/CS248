@@ -1,3 +1,7 @@
+/**
+  Hunt the Wumpus programming assignment.
+  @author Catherine Bain
+*/
 import java.io.*;
 import java.util.*;
 
@@ -24,15 +28,19 @@ public class Wumpus {
         
         Rooms map[] = new Rooms[size];
 
+        /** @return an array of room objects */
         for (int x = 0; x <size; x++) { 
             map[x] = new Rooms(in);
         }
-
+        /** assigns hazards to the rooms */
         assignHazards(TuskenRaider, quicksand, map);
 
         while (isPAlive) {
+            /** @return which room they are in */
             map[location].printLocation();
+            /** @return description of the room they are in */
             map[location].printDescription();
+            /** @return which tunnels they have available to them */
             map[location].printTunnels();
             System.out.println("You have "+ammo+" blasts left.");
             if(map[map[location].ad1-1].isTuskenRaider || map[map[location].ad2-1].isTuskenRaider || map[map[location].ad3-1].isTuskenRaider) 
@@ -128,26 +136,29 @@ public class Wumpus {
 
         
       // = in.nextLine();
-
+    /** generates a random integer
+      @param maximum number of rooms they have available 
+      @param minimum 1  
+      @return integer of room assignment */
     public static int getRandomInteger(int maximum, int minimum){
         return ((int) (Math.random()*(maximum - minimum))) + minimum;
     }
 
-    public static void move(int location, int choice, Rooms [] map, int ammo) {
-        
-    }
-
-    public static void assignHazards(int spiders, int pits, Rooms [] map) {
+    /** assigns hazards
+      @param TuskenRaider number of rooms that will have Tusken Raiders
+      @param quicksand number of rooms that will have quicksand
+      @param map array containing the map  */
+    public static void assignHazards(int TuskenRaider, int quicksand, Rooms [] map) {
         int assignment = getRandomInteger(map.length-1,1);
         map[assignment].isBountyHunter = true;
-        for (int i=0;i<spiders;i++) {
+        for (int i=0;i<TuskenRaider;i++) {
             assignment = getRandomInteger(map.length-1,1);
             if (map[assignment].hazard())
                 i--;
             else
                 map[assignment].isTuskenRaider = true;
         }
-        for (int i=0;i<pits;i++) {
+        for (int i=0;i<quicksand;i++) {
             assignment = getRandomInteger(map.length-1,1);
             if (map[assignment].hazard())
                 i--;

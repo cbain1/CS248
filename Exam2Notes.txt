@@ -72,3 +72,16 @@ Linked List
         1. copy old top and save 
         2. move top to one below 
         3. return old top
+Local Area Network (LAN)
+    - ethernet 
+        - bus-style broadcast network 
+    - sections are connected using 
+        - switch (smart)
+            - pass relevant stuff not everything 
+            - also only passes to the relevant locations 
+        - hub/repeater/bridges (dumb)
+            - repeat everything 
+    - router
+        - contains CPU and can filter packets of information
+        - can program router to block specific stuff like facebook or another website
+        - also does all the stuff a switch does 
