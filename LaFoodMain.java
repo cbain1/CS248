@@ -15,8 +15,14 @@ class LaFoodMain {
 			String action = cin.next();
 
 			if (action == "A") {
-				enqueue 
+				LaFood party = new LaFood(in);
+				enqueue(party); 
 			}
+			if (action == "T") {
+				dequeue
+			}
+			if (action == "Q")
+				quit program
 		}
 
 

@@ -1,42 +1,46 @@
-public class LaFoodQueue implements Queue {
-	int front, back;
-	int count;
-	Object [] donut;
+class LaFoodQueue implements Queue {
 	
-	public LaFoodQueue(int maxsize) {
-		donut = new Object[maxsize];
-		front=0;
-		back=maxsize-1;
-		count=0;
+	public class node {
+		private Object data;
+		private node next;
 	}
-	public LaFoodQueue()	{ this(100); }
+	node front,back;
+	int count;
+
+	public void QueueLL() {
+		makeEmpty();
+	}
 	
 	public void enqueue(Object x) {
-		if(isFull()) return; // do nothing
-		back++; if(back>=donut.length) back=0;
-		donut[back]=x;
+		node newnode = new node();
+		newnode.data = x;
+		newnode.next = null;
 		count++;
+		if (back==null) //we can only do if back is null here becuase we were careful in deque to make sure we set it back to null
+			front=newnode; 
+		else 
+			back.next = newnode;
+		back=newnode;
+
 	}
 	public Object dequeue() {
 		if(isEmpty()) return null;
-		int oldfront=front;
-		front++; if(front>=donut.length) front=0;
+		Object savedItem=front.data;
 		count--;
-		return donut[oldfront];
+		front=front.next;
+		if(front==null) back=null;
+		return savedItem;
 	}
 	public Object getFront() {
 		if(isEmpty()) return null;
-		else return donut[front];
-		
-		// return isEmpty()?null:donut[front];
+		else return front.data;
 	}
-	
-	public int size() { return count; }
-	public boolean isEmpty() { return count<=0; }
-	public boolean isFull() { return count>=donut.length; }
+
+	public int size() {return count;}
+	public boolean isEmpty() {return count<=0;}
+	public boolean isFull() {return false;}
 	public void makeEmpty() {
-        count=0; 
-        front=0; 
-        back=donut.length-1; 
-    }
+		front=back=null;
+		count=0;
+	}
 }

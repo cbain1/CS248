@@ -85,3 +85,11 @@ Local Area Network (LAN)
         - contains CPU and can filter packets of information
         - can program router to block specific stuff like facebook or another website
         - also does all the stuff a switch does 
+
+Recursion
+    - when a function calls itself 
+    - 4 rules of recursion 
+        1. have a base case
+        2. converge to a base case
+        3. trust that recursion works
+        4. 
