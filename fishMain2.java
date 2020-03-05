@@ -22,7 +22,7 @@ public class fishMain2 {
     }
 
     public static void main(String [] args) throws IOException {
-        Scanner in = new Scanner(new FileReader("fish.txt"));
+        Scanner in = new Scanner(new FileReader("fishfile.txt"));
         int fishcount = in.nextInt();
 
         Fish [] school = new Fish[fishcount];

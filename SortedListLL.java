@@ -32,15 +32,25 @@ class SortedListLL implements SortedList
 			before.next=newnode;
 		count++;
 	}
+	// public Comparable get(int pos)
+	// {
+	// 	if(!(pos>=0 && pos<count)) return null;
+	// 	node p;
+	// 	p=head;
+	// 	for(int i=0; i<pos; i++)
+	// 		p=p.next;
+	// 	return p.data;
+	// }
 	public Comparable get(int pos)
 	{
 		if(!(pos>=0 && pos<count)) return null;
-		node p;
-		p=head;
-		for(int i=0; i<pos; i++)
-			p=p.next;
-		return p.data;
+		return getHelp(head,pos);
 	}
+	private Comparable getHelp(node head, int pos) {
+		if(pos==0) return head.data;
+		else return getHelp(head.next,pos-1);
+	}
+
 	public Comparable delete(int pos)
 	{ 
 		if(!(pos>=0 && pos<count)) return null;

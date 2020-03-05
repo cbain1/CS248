@@ -6,6 +6,7 @@ class LaFoodQueue implements Queue {
 	}
 	node front,back;
 	int count;
+	node head;
 
 	public void QueueLL() {
 		makeEmpty();
@@ -22,6 +23,24 @@ class LaFoodQueue implements Queue {
 			back.next = newnode;
 		back=newnode;
 
+	}
+	public void insert(Comparable x) {
+		node before,after;
+		after=front; before=null;
+
+		while(after!=null && ((Comparable)after.data).compareTo(x)>0)
+		{
+			before=after;
+			after=after.next;
+		}
+		node newnode=new node();
+		newnode.data=x;
+		newnode.next=after;
+		if(before==null) // we're inserting at the front
+			front=newnode;
+		else
+			before.next=newnode;
+		count++;
 	}
 	public Object dequeue() {
 		if(isEmpty()) return null;
@@ -43,4 +62,8 @@ class LaFoodQueue implements Queue {
 		front=back=null;
 		count=0;
 	}
+	// public String toString() {
+	// 	((LaFood) (front.data)).print();
+	// 	return ";";
+	// }
 }

@@ -4,7 +4,7 @@ import java.util.*;
 class QueueMain {
 	
 	public static void main(String [] args) throws IOException {
-		Scanner ff=new Scanner(new FileReader("fish.txt"));
+		Scanner ff=new Scanner(new FileReader("fishfile.txt"));
 		int fishcount;
 		fishcount=ff.nextInt();
 		

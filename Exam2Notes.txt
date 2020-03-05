@@ -92,4 +92,6 @@ Recursion
         1. have a base case
         2. converge to a base case
         3. trust that recursion works
-        4. 
+        4. avoid repeated work
+Dynamic Programming: using an array to store fucntion values to avoid repeated work
+    - usually the array is filled from 0 

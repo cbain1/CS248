@@ -1,4 +1,3 @@
-import java.nio.file.NotLinkException;
 
 class Recursion {
 
@@ -28,6 +27,14 @@ class Recursion {
 		if(n<2) return n;
 		return fib(n-1)+fib(n-2);
 	}
+	static int fibDynamic(int n) {
+		int [] sadness = new int[n+1];
+		sadness[0] = 0;
+		sadness[1] = 1;
+		for (int i=2;i<=n;i++)
+			sadness[i] = sadness[i-1]+sadness[i-2];
+		return sadness[n];
+	}
 
 	public static void main(String [] args) {
 		System.out.println(factorial(4));
@@ -39,6 +46,8 @@ class Recursion {
 		System.out.println(isPalindrome("racecar"));
 		System.out.println(isPalindrome("not a palindrome"));
 		System.out.println(isPalindrome("palindrome"));
+		System.out.println(fibDynamic(5));
+		System.out.println(fibDynamic(15));
 		System.out.println(fib(5));
 		System.out.println(fib(15));
 		System.out.println(fib(35));
