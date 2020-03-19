@@ -8,6 +8,7 @@ public class LaFood implements Comparable{
 	
 	static int count=0;
 
+	// builds new LaFood object from file
 	public LaFood(Scanner in) {
 		time = in.nextInt();
         size = in.nextInt();
@@ -15,12 +16,18 @@ public class LaFood implements Comparable{
         name = in.nextLine();
         count+=size;
 	}
-	public void printWait() {
+
+	// prints the time of arrival for the party 
+	public void printArrival() {
 		System.out.println("Please wait at the bar,"+name+" (party of "+size+") (time = "+time+")");
 	}
+
+	// prints time when the party is sat
 	public void printReady(int time) {
 		System.out.println("Table for"+name+"! (time= "+time+")");
 	}
+
+	// prints parties that were not sat
 	public void print() {
 		System.out.println(name+", party of size "+size);
 	}
@@ -34,6 +41,7 @@ public class LaFood implements Comparable{
 		return bribe;
 	}
 
+	// allows parties to be compared based on bribe size
 	public int compareTo(Object x) {
 		if (x instanceof LaFood) {
 			LaFood party=(LaFood)x;

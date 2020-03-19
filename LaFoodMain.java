@@ -18,27 +18,26 @@ class LaFoodMain {
 		double totalWait = 0;
 
 		
-		
+		// this loop reads the file as long as there is another thing in the file to read
 		while (cin.hasNext()) {
 			char action = cin.next().charAt(0);
 
 			if (action == 'A') {
-				// In order to make this a priority queue you would use the insert function comparing on bribe
+				//builds new LaFood object
 				LaFood party = new LaFood(cin);
-				Q.insert(party); //change this to insert instead of enqueue -- need to make comparable
-				party.printWait();
+				Q.insert(party); 
+				party.printArrival();
 			}
 			if (action == 'T') {
 				LaFood party = (LaFood)Q.dequeue();
 				timeSat = cin.nextInt();
-				party.printReady(timeSat); //this is wrong
+				party.printReady(timeSat); 
 
 				totalWait += party.size()*((int)timeSat-party.time());
 				totalParties += party.size();
 			}
 			if (action == 'Q') {
 				System.out.println();
-				//Should total parties contain the parties that were never sat?
 				average = totalWait/totalParties;
 				System.out.println("The average waiting time was: "+String.format("%.2f",average));
 				System.out.println();
@@ -46,7 +45,6 @@ class LaFoodMain {
 				while(!Q.isEmpty())
 					((LaFood)Q.dequeue()).print();
 			}
-			// System.out.println(Q);
 		}
 
 

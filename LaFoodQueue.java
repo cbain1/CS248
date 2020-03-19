@@ -8,10 +8,11 @@ class LaFoodQueue implements Queue {
 	int count;
 	node head;
 
+	// makes a new queue
 	public void QueueLL() {
 		makeEmpty();
 	}
-	
+	// this function takes in the LaFood object and enqueues it -- this function is not used 
 	public void enqueue(Object x) {
 		node newnode = new node();
 		newnode.data = x;
@@ -24,6 +25,8 @@ class LaFoodQueue implements Queue {
 		back=newnode;
 
 	}
+
+	// this function inserts a LaFood object into the queue based on the amount of the bribe
 	public void insert(Comparable x) {
 		node before,after;
 		after=front; before=null;
@@ -42,6 +45,8 @@ class LaFoodQueue implements Queue {
 			before.next=newnode;
 		count++;
 	}
+
+	// this function dequeues the first item in the queue
 	public Object dequeue() {
 		if(isEmpty()) return null;
 		Object savedItem=front.data;
@@ -50,6 +55,8 @@ class LaFoodQueue implements Queue {
 		if(front==null) back=null;
 		return savedItem;
 	}
+
+	//get the front of the queue
 	public Object getFront() {
 		if(isEmpty()) return null;
 		else return front.data;
