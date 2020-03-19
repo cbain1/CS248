@@ -16,15 +16,22 @@ class SLMain
 		{
 			fist.insert(new Fish(ff));
 		}
+		//print before deletion
+		for(int i=0; i<fist.size(); i++)
+			((Fish)fist.get(i)).print();
+		
+		System.out.println("\n");
 		
 		Fish sad=(Fish)fist.delete(3);
 		System.out.println("We deleted this fish:");
 		sad.print();
+		System.out.println("\n");
 		
-		for(int i=0; i<fist.size(); i++)
-			((Fish)fist.get(i)).print();
+		// for(int i=0; i<fist.size(); i++)
+		// 	((Fish)fist.get(i)).print();
 		
 		fist.reset();
+		//print after deletion?
 		while(fist.hasNext()){
 			Fish f= (Fish)fist.getNext();
 			f.print();

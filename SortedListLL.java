@@ -32,15 +32,7 @@ class SortedListLL implements SortedList
 			before.next=newnode;
 		count++;
 	}
-	// public Comparable get(int pos)
-	// {
-	// 	if(!(pos>=0 && pos<count)) return null;
-	// 	node p;
-	// 	p=head;
-	// 	for(int i=0; i<pos; i++)
-	// 		p=p.next;
-	// 	return p.data;
-	// }
+
 	public Comparable get(int pos)
 	{
 		if(!(pos>=0 && pos<count)) return null;
@@ -53,22 +45,22 @@ class SortedListLL implements SortedList
 
 	public Comparable delete(int pos)
 	{ 
-		if(!(pos>=0 && pos<count)) return null;
-		node before=head;
-		for(int i=0; i<pos-1; i++)
-			before=before.next;
-		Comparable saveditem;
+		if(!(pos>=0 && pos<count)) return null; // if they try to have a position that is negative or larger than the list that exists
+		node before=head; // create a before node and have it set to the front of the list
+		for(int i=0; i<pos-1; i++) // continue moving along the list until you reach the position requested 
+			before=before.next; 
+		Comparable saveditem; // create this thing 
 		if(pos==0) // deleting the first item
 		{
-			saveditem=head.data;
-			head=head.next;
+			saveditem=head.data; // save the data from the head node
+			head=head.next; // set head to the next node 
 		}
 		else
 		{
-			saveditem=before.next.data;
-			before.next=before.next.next;
+			saveditem=before.next.data; //saving data from the next node
+			before.next=before.next.next; // setting the before pointer to be the pointer of the following node
 		}
-		count--;
+		count--; 
 		return saveditem;
 	}
 	
