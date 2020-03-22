@@ -48,9 +48,9 @@ public class Fish implements Comparable {
                 // lets compare by name
                 // return name.compareTo(f.getName());
                 //by fins
-                if(fins<f.getFins()) return -1;
-                if(fins==getFins()) return 0;
-                return 1;
+                if(fins<f.getFins()) return -1; //if fins of first are < fins of second
+                if(fins==f.getFins()) return 0;
+                return 1; // if fins of first are > fins of second
             }
             else {//panic
                 System.out.println("Error: You can only compare fish to fish, duh!");

@@ -25,7 +25,7 @@ class Recursion {
 	}
 	static int fib(int n) {
 		if(n<2) return n;
-		return fib(n-1)+fib(n-2);
+		 return fib(n-1)+fib(n-2);
 	}
 	static int fibDynamic(int n) {
 		int [] sadness = new int[n+1];

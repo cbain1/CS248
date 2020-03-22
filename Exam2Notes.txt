@@ -95,3 +95,32 @@ Recursion
         4. avoid repeated work
 Dynamic Programming: using an array to store fucntion values to avoid repeated work
     - usually the array is filled from 0 
+
+Sorting Algorithms 
+- 6 major ones:
+    - selection sort: minimizes data moves
+        -basic idea: looks for max item and move to the end (could also do with minimim and put in front)
+        Example:
+            81726354
+            41726358
+            41526378
+            41523678
+            41325678
+            21345678
+            12345678
+        - running time: O(n^2)
+        - data moves: O(n)
+    - bubble sort: horrible, know how bad so you know to get rid of it 
+        - basic idea: look for stuff thats out of order and swap them
+        Example:
+            81726354... would compare 8 to 1 and swap then 8 to 7 and swap, etc.
+            17263548
+            12635478
+            12354678
+            12345678
+        - running time: O(n^2) -- constants are worse with this than selection
+        - data moves: O(n^2)
+    - insertion sort: good on nearly-sorted data
+    - shell sort: fast and based on insertion sort  
+    - quicksort: recursive, optimal on average
+    - mergesort: recursive, optimal, needs extra space 

@@ -131,7 +131,8 @@ public class Wumpus {
                         action = 'D';
                 }
             }  
-        }  
+        } 
+        cin.close(); 
     }
 
         
