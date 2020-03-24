@@ -1,3 +1,3 @@
-public interface Comparable {
+public interface ComparableInClass {
     public int compareTo(Object x);
 }

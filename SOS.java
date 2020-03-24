@@ -6,12 +6,18 @@ public class SOS  {
 		Scanner in = new java.util.Scanner(System.in);
 
 		Integer [] list = createList(in);
+		System.out.println("\n");
 
 		for (int i=0;i<list.length;i++) {
 			System.out.println(list[i]);
 		}
+		System.out.println("\n");
 
 		Sorts.bubble(list); // figure out how to use this function but with integers instead of comparable objects -- this seems dumb 
+
+		for (int i=0;i<list.length;i++) {
+			System.out.println(list[i]);
+		}
 
 		in.close();
 	}

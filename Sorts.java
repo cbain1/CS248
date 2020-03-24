@@ -33,4 +33,54 @@ class Sorts {
 			if(isSorted) return;
 		}
 	}
+
+	public static void insertion(Comparable [] list) {
+		for (int toInsert=1;toInsert<list.length;toInsert++) {
+			Comparable savedItem = list[toInsert];
+			int i;
+			for (i=toInsert-1;i>=0;i--) {
+				//bigger than the savedItem
+				if(savedItem.compareTo(list[i])<0) 
+					list[i+1] = list[i];
+				//if smaller than savedItem
+				else {
+					list[i+1] = savedItem;
+					break; // this happens if i>0
+				}
+			}
+			if(i<0)
+				list[0]=savedItem;
+			//printing to show how it sorts 
+			// System.out.println();
+			// for (int j=0;j<=toInsert;j++) System.out.println(list[j]);
+		}
+	}
+	public static void shellInsertion(Comparable [] list, int offset, int gap) {
+		for (int toInsert=offset+gap;toInsert<list.length;toInsert+=gap) {
+			Comparable savedItem = list[toInsert];
+			int i;
+			for (i=toInsert-gap;i>=0;i-=gap) {
+				//bigger than the savedItem
+				if(savedItem.compareTo(list[i])<0) 
+					list[i+gap] = list[i];
+				//if smaller than savedItem
+				else {
+					list[i+gap] = savedItem;
+					break; // this happens if i>0
+				}
+			}
+			if(i<0)
+				list[offset]=savedItem;
+
+		}
+	}
+	public static void shell(Comparable [] list) {
+		int gap =list.length/5;
+		while (gap>1) {
+			for(int offset=0;offset<gap;offset++)
+				shellInsertion(list,offset,gap);
+			gap = (int) (gap/2.2);
+		}	
+		insertion(list); // we just run normal insertion once the gap is 1
+	}
 }

@@ -12,9 +12,13 @@ public class SortMain {
         for (int i=0; i<school.length;i++) {
             // this Fish is a new constructor
             school[i] = new Fish(in);
+        }
+        for (int i=0; i<school.length;i++) {
+            // this Fish is a new constructor
+            school[i].print();
 		}
 		
-		Sorts.bubble(school);
+		Sorts.shell(school);
 		System.out.println("\nSorting...\n");
 
 		for (int i=0; i<school.length;i++) {

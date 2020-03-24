@@ -35,6 +35,10 @@ public class Fish implements Comparable {
         public void print() {
             System.out.println("fish: "+name+", species= "+species+", color= "+color+", #fins= "+fins);
         }
+
+        public String toString() {
+            return "fish: "+name+", species= "+species+", color= "+color+", #fins= "+fins;
+        }
         /** @return the name of the fish */
         public String getName() {return name;}
         public String getSpecies() {return species;}
