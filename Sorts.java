@@ -1,4 +1,4 @@
-class Sorts {
+public class Sorts{
 	public static void selection(Comparable [] list) { // call this via Sorts.selection, passed by reference
 		//find max, move to end
 		for(int last=list.length-1;last>0;last--) {
@@ -83,4 +83,71 @@ class Sorts {
 		}	
 		insertion(list); // we just run normal insertion once the gap is 1
 	}
+
+	public static void quick(Comparable [] list) {
+		quickHelp(list,0,list.length-1);
+	}
+
+	private static void quickHelp(Comparable [] list, int start, int stop) {
+		if (stop<=start) // this occurs when the length is 0 or 1 aka already sorted
+			return;
+		if (start+1==stop) {// length 2
+			if (list[start].compareTo(list[stop])>0) // if out of order
+				swap(list,start,stop);
+			return; // if in order 
+		}
+		//recursive case
+		int pivotPos=partition(list,start,stop);
+		quickHelp(list,start,pivotPos-1);
+		quickHelp(list,pivotPos+1,stop);
+	}
+	//we need to keep track of the beginning of the big function
+	private static int partition(Comparable [] list, int start, int stop){
+		Comparable pivot = list[stop];
+		int beginBig=start;
+		for(int i=start;i<stop;i++) {
+			if(list[i].compareTo(pivot)<0) { // if list[i] is smaller than the pivot
+				swap(list,beginBig,i); // swap the object with where big began to move it to the small section 
+				beginBig++; // big now begins one more to the right
+			}
+		}
+		swap(list,stop,beginBig); // moves big to the pivot
+		return beginBig; // this is now the pivot position
+	}
+
+
+	public static void merge(Comparable [] list) {
+		mergeHelp(list,0, list.length-1);
+
+	}
+	private static void mergeHelp(Comparable [] list, int start, int stop) {
+		//base cases
+		if (stop<=start)
+			return;
+		if (start+1==stop) {// length 2
+			if (list[start].compareTo(list[stop])>0) // if out of order
+				swap(list,start,stop);
+			return; // if in order 
+		}
+		//recursive case 
+		int midpoint = (start+stop)/2;
+		mergeHelp(list, start, midpoint);
+		mergeHelp(list, midpoint+1,stop);
+		domerge(list, start, midpoint, stop);
+	}
+	private static void domerge(Comparable [] list, int start, int mid, int stop) {
+		Comparable [] A = new Comparable[stop-start+1];
+		int left=start;
+		int right=mid+1;
+		for(int i=0;i<A.length;i++) {
+			//pull from the left if [1] the right is empty or [2] the left is not empty and the left item is smaller
+			if(right>stop || (left<=mid && list[left].compareTo(list[right])<=0)) 
+				A[i]=list[left++];
+			else 
+				A[i] = list[right++];
+		}
+		for (int i=0;i<A.length;i++)
+			list[start+1]=A[i];
+	}
+
 }

@@ -17,5 +17,9 @@ class QueueMain {
 		
 		while(!Q.isEmpty())
 			((Fish)Q.dequeue()).print();
+
+		// System.out.println("");
 	}
+
+
 }

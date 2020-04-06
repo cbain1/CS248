@@ -22,10 +22,10 @@ class SLMain
 		
 		System.out.println("\n");
 		
-		Fish sad=(Fish)fist.delete(3);
-		System.out.println("We deleted this fish:");
-		sad.print();
-		System.out.println("\n");
+		// Fish sad=(Fish)fist.delete(3);
+		// System.out.println("We deleted this fish:");
+		// sad.print();
+		// System.out.println("\n");
 		
 		// for(int i=0; i<fist.size(); i++)
 		// 	((Fish)fist.get(i)).print();

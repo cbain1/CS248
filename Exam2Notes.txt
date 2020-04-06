@@ -132,7 +132,6 @@ Sorting Algorithms
             12356784
             12345678
         - running time: O(n^2) -- can be linear if its almost sorted
-
     - shell sort: fast and based on insertion sort  
         - basic idea: sort subsequences of the array defined by offsets and gaps
             - leverage insertion sort
@@ -147,7 +146,59 @@ Sorting Algorithms
                 - gap 1: this is the same as insertion sort 
         - running time: O(n(log n)^2)
         - gap = gap/2.2(experimental)
-        
-
     - quicksort: recursive, optimal on average
+        - basic idea: recursively divide and conquer
+        - steps: 
+            1.choose a pivot item
+            2.divide into big and small based on the pivot item 
+            3. end with 3 groups: <pivot, pivot, >pivot
+            4. recursively sort the left half, then recursively sort the right half 
+        Example: 
+            81726354 - 4 is the pivot point
+            compare 8 to 4... 8 should be in the right region
+            compare 8 to 1... 1 is wrong compared to the 8 and the 4 so swap 1 and 8
+            18726354
+            now 1 and 8 are partitioned 
+            compare 7 to 4... leave there, its good relative to the 4
+            compare 2 to 4... wrong, swap with 8
+            12786354
+            now 1&2 are left of pivot and 7&8 are right of the pivot
+            continue to follow this patern until are in the right place as compared to the pivot
+            12346758 -- this version is the final version before the recursive call
+        - running time: 
+            - average case: O(nlogn)
+            - worst case: O(n^2)
     - mergesort: recursive, optimal, needs extra space 
+        - basic idea: sort each half, then merge (recursive divide and conquer)
+        Example: 
+            81726354
+            8172  6356
+            1278  3456
+            12345678 
+        - running time: O(nlogn)
+            - merge: 9n+5
+
+
+Programming Languages:
+    - programming paradigms (ways of thinking about writing code)
+        - functional: the basic unit you write in is functions, also no variables
+            - LISP, ML, and Scheme
+        - object oriented
+            - Smalltalk, JAVA, C++
+            - originated with the MacBook
+        - imperative
+            - what machine languages use
+            - FORTRAN, COBOL, BASIC, C, and APL, Pascal, Assembler
+        - declarative 
+            - prolog, [SQL]
+        - parallel/concurrent 
+            - no good language for this (C++/MPI is used in parallel at Butler)
+
+    - compiler theory (the steps a programmer goes through to translate to a computer)
+        - source program --> lexical analyzer (produces a token stream) --> parser(checks for grammar and semantics constructs a data structre) --> code generator (tree treversal to construct assembly code) --> code optimizer --> object program
+
+        1. lexical analysis(Scanner): produces a token stream
+        2. syntax analysis(Parser): checks the tokens against the grammar
+        3. semantic analysis(Parser): checks for meaning/types
+        4. code generation
+        5. code optimization: will not effect bigO but it could effect the constants 

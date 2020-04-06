@@ -82,5 +82,13 @@ class SortedListLL implements SortedList
 		return item;
 	}
 	public boolean hasNext(){return here!=null;}
+
+	public Comparable last() {
+		node isLast = head;
+		while(isLast!=null) {
+			isLast=isLast.next;
+		}
+		return isLast.data;
+	}
 	
 }

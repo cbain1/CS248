@@ -37,6 +37,7 @@ class SortedLLRecursive implements SortedList {
 		else return getHelp(head.next,pos-1);
 	}
 	private	Comparable savedinfo;
+
 	public Comparable delete(int pos) {
 		if(pos<0 || pos>=count) return null;
 		head = deleteHelp(head, pos);
@@ -75,4 +76,12 @@ class SortedLLRecursive implements SortedList {
 		return item;
 	}
 	public boolean hasNext(){return here!=null;}
+
+	public Comparable last() {
+		node isLast = head;
+		while(isLast!=null) {
+			isLast=isLast.next;
+		}
+		return isLast.data;
+	}
 }

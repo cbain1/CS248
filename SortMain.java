@@ -18,7 +18,7 @@ public class SortMain {
             school[i].print();
 		}
 		
-		Sorts.shell(school);
+		Sorts.merge(school);
 		System.out.println("\nSorting...\n");
 
 		for (int i=0; i<school.length;i++) {
