@@ -1,0 +1,49 @@
+catherinebain > java CPMain
+Welcome to Camp Posanivee!!
+
+Command: A
+There are no campers yet! We don't have an average age with no campers!
+
+Command: E
+New camper added
+
+Command: E
+New camper added
+
+Command: E
+New camper added
+
+Command: L
+Kanga, 26, Vegan
+Pooh, 31, Anything
+Tigger, 28, Anything
+
+
+Command: D
+Tigger, age 28 has diet of Anything
+
+Command: E
+New camper added
+
+Command: A
+The average age of campers is 28.75
+
+Command: V
+There are 2 vegans at camp.
+
+Command: E
+New camper added
+
+Command: W
+Camper Kanga, age 26 has withdrawn
+
+Command: P
+Pooh, 31, Anything
+Eeyore, 36, Vegan
+Tigger, 28, Anything
+Rabbit, 30, Vegan
+
+
+Command: Q
+Congrats, you made it to the end of the program without getting poison ivy.
+catherinebain >

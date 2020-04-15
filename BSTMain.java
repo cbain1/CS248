@@ -18,6 +18,8 @@ class BSTMain
 		}
 		pan.print();
 
+		System.out.println(pan.delete(new Fish("","","",7)));
+
 		Fish f=new Fish("","","",5);
 		Fish found = (Fish)pan.lookup(f);
 		if(found!=null)

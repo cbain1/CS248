@@ -1,0 +1,222 @@
+Trees 
+	- terms 
+		- tree: graph with no cycles 
+		- parent, children, root, siblings, etc. 
+		- leaf: node with no children
+		- height: maximum length from leaf to root
+		- binary trees: every node has at most 2 children
+		- left and write children (what they sound like)
+	- traverals 
+		- level order: left to right, by level
+		- preorder: node, then its children 
+		- in order: left, the node, then right (like if you flattened the tree)
+		- postorder: children, then the node 
+	- trees are how infix, prefix, and postfix work
+
+Database Systems 
+	- How to set up/design a databse 
+		- Entity-Relationship model
+			- (fish) --lives in-- (tank)
+			- here fish and tank are both entities and they are related through this lives in model 
+				- what do fish have? (atributes)
+					- name, color, species, fish 
+				- what do tanks have? (atributes)
+					- water-type, size, temperature, tankID
+			- we typically pick one atribute to be the "primary key", i.e. fish here may use name 
+				- the primary key must be unique as compared to all other entities 
+			- you can have attributes on relationships 
+		- Relational model (convert the ER model into this)
+			- build a table for each entity of the ER model 
+	- Relational Algebra
+		- projection: selects a column (pi)
+		- selection: chooses a row based on condition (sigma, lowercase)
+		- join: combines tables on common attributes/columns (bowtie)
+		- Example: 
+			- list all fish colors: 
+				- project color (fish)
+			- list fish with at least 5 fish:
+				- select fins>=5 (fish)
+			- list the names of fish with at least 5 fins:
+				- project name (select fins>=5 (fish))
+			- list fish living in salt water:
+				- select name (lives in join (select water=salt(tank)))
+	- SQL
+		- Example: 
+			- list all fish colors: 
+					- SELECT color FROM fish;
+				- list fish with at least 5 fish:
+					- SELECT * FROM fish WHERE fins>=5;
+				- list the names of fish with at least 5 fins:
+					- SELECT names FROM fish WHERE fins>=5;
+				- list fish living in salt water:
+					- SELECT name FROM (lives-in JOIN (SELECT * FROM tank WHERE saltwater=true));
+	- some other stuff 
+		- concurrency 
+		- fault-tolerance/backups/checkpoints
+		- optimization - indexes 
+		- query processing and optimization
+		- distributed processing  
+
+Binary Search Trees 
+	- definition: binary tree where, for every node, every item in the left subtree is <= the item in that node and every item in the right subtree is >= the node 
+	- insertion: TAKING EXAM 
+		- in general, you want the tree to be balanced, but this exam is not balances 
+											T 
+								A 					X
+									K	
+								I 		N 
+							G 		M 
+						E 
+					A
+	- insertion: 25 5 30 45 15 10 52 31 
+											25
+							5					30
+								15					45
+							10					31		52
+		- insert time: average O(log n) 
+	- deletion: GRLTUZBAF
+									G 
+							B				R 	
+						A		F		L		T 
+													U 
+														Z 
+		- 3 cases:
+			- 0 children: just chop it off 
+			- 1 children: promote the child to take it's place
+			- 2 children: 
+				- find the inorder successor to the one you delete 
+				- replace the deleted one with the inorder successor 
+				- delete the original inorder successor 
+				- Example: delete G 
+									L 
+							B				R 	
+						A		F				T 
+													U 
+														Z 
+				- Example: delete R
+									L 
+							B				T 	
+						A		F				U 
+													Z 
+		- average height: O(log n)
+		- worst case height O(n)
+		- insert, delete, and search are all O(logn) running time 
+		- traversals are O(n)
+		- treesort O(n log n) average 
+
+Theory of Computation 
+	- Questions:
+		- What is a computer?
+			- Alan Turing (1930s) 
+				- british mathmetician 
+				- can we create a procedure to prove theorems 
+				- invented the Turing Machine Model of Computing 
+					- Turing Machine: finite brain + infinite "memory" paper tape 
+			- Church-Turing thesis: all computing models are essentially equivalent 
+				- any turing machine program can be converted to a java program and vice versa 
+		- What can and can it not do?
+			- there are functions that cannot be solved on a computer 
+				- H(A,x) = true iff algorithm A halts on input x 
+						 = false if A(x) runs forever (infinite loop)
+				- Theorem: H() has no algorithm (by contradition)
+					Assume H(A,x) has an algorithm 
+
+					program R(a):
+					if H(A,A) == true, then while(true); // infinite loop
+					else {print("hi") and halt;}
+
+					what is R(R)? What happens? we would enter an infinite loop, 
+					if H(R) runs forever, it halts, if it runs forever, there is an infinite loop
+
+					therefore, there is no algorithm by contradition
+			- so how many functions are in fact uncomputable vs. computable
+				- computable: countably infinite
+					- levels of computability (often broken down by speed)
+						- exponential time
+						- nondeterministic (NP)
+						- feasible time (P) -- P - O(n^k)
+						*** P may or may not be qual to NP ***
+				- uncomputable: unconutably infinite
+			- Complexity theory (how hard is it to do)
+
+Hash Tables (Hash Maps)
+	Operations 			BST 			Hash Table 
+
+	insert				log n 				O(1)
+	delete				log n				O(1)
+	lookup				log n 				O(1)
+	traversals 			  n 				O(nlogn)
+
+	- basically a vertical array 
+	- this is where you store your numbers 
+	Hash function: h(x)
+		input: primary attribute 
+		output: table position
+	example:
+		data: 12, 23, 34, 5, 21
+		h(x) = x%9 
+		data: 12 stored in 3, 23 stored in 5, 34 stored in 7, (5 stored in 5), (21 stored in 3)
+			- 5 and 21 here create a collision! what do we do?
+				- collision resolution technique:
+					1. linear probing: scan and look for an open spot (5 stored in 6)
+						- messes with the lookup and delete 
+						- can also get lots of clustering in one area of the table 
+					2. quadtratic probing: scan using quatratic function to find open spot	
+						- creates the same lookup problem 
+					3. separate chaining: create a new box next to the box and create a linklist 
+					4. buckets: can put multiple items in one box 
+
+Priority Queue:
+	- enqueue
+	- dequeue
+	- getFront
+	- collection
+
+	- basically the same as a a normal queue, but there is a priority based on something
+		- bribe written in lafood 
+	
+	- we use the heap, not the stack 
+
+Heap Data Structure 
+	- complete, binary tree
+		- complete: every level is full, except bottom level is filled left-to-right 
+	- satisfies the "heap condition" 
+		- every node <= its children
+
+	- insert(x)
+		1. add x at the 'last postition'
+			- the only place that preserves the complete property
+		2. bubble up 
+			- compare new node to its parent node, if smaller, swap - do this recursively for entire path until the heap condition is satisfied 
+	- deleteMin
+		1. copy out the root and return it later 
+		2. move the 'last item' to the root 
+		3. bubble down to restore the heap condition, using the smallest values to promote 
+			- for this bubble, you must compare to both left and right branches 
+	- store the tree in an array using level order 
+		- last
+	- Heap Sort 
+		- running time: O(n log n)
+		- no extra space needed 
+Artificial Intelligence 
+	- creating sophware agents and making them 'intelligent' 
+		-agents: self driving cars, robots that play chess, etc. 
+	-two levels:
+		- weak AI: weekly intelligent 
+		- strong AI: human-like, self-aware intelligence 
+			- the singuarity (an AI program can improve itself like the alphaGo)
+	- how do we tell if an agent is intelligent?
+		- Turing Test (1950): basically if the human interacts with the agent and he cannot tell that they are an agent, it is intelligent 
+	- what is hard for AI?
+		- hard: walking, seeing, hearing, reading
+		- easy: problems with limited domain/focus, chess, diagnosing (expert system)
+	- AI areas of research: 
+		- image processing
+		- language recognition 
+		- robotics 
+		- neural networks 
+		- genetic algorithms 
+		- more... 
+	- game playing: 	
+		- state space search: solve stuff like the number sliding puzzle 
+		- use heuristics 

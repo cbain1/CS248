@@ -1,6 +1,6 @@
 import java.io.*;
 
-class BST implements Collection {
+public class BST implements Collection {
 
 	private class treenode {
 	private Comparable data;
@@ -81,4 +81,46 @@ class BST implements Collection {
 	public boolean isEmpty() {return root==null;}
 	public boolean isFull() {return false;}
 	public void makeEmpty() {root=null;count=0;}
+
+	private Comparable deleteditem;
+
+	public Comparable delete(Comparable x) {
+		deleteditem=null;
+		root=deleteHelp(root,x);
+		count--;
+		return deleteditem;
+	}
+	private treenode deleteHelp(treenode r, Comparable x) {
+		if(r==null) return null;
+		if(r.data.compareTo(x)==0) {
+			deleteditem=r.data;
+			//zero children 
+			if(r.left==null && r.right==null)
+				return null;
+			//one child
+			if(r.right==null)
+				return r.left;
+			else if (r.left==null)
+				return r.right;
+			//two children
+			Comparable ios = smallest(r.right);
+			Comparable deletedItem2=r.data;
+			r.data=ios;
+			r.right=deleteHelp(r.right,ios);
+			deleteditem=deletedItem2;
+			return r;
+		}
+		if (x.compareTo(r.data)<0) //left tree
+			r.left=deleteHelp(r.left,x);
+		else	
+			r.right=deleteHelp(r.right,x);
+		return r;
+	}
+	private Comparable smallest(treenode r) {
+		if (r==null) return null;
+		if (r.left==null) return r.data;
+		return smallest(r.left);
+
+	}
+
 }
