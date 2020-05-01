@@ -198,6 +198,7 @@ Heap Data Structure
 	- Heap Sort 
 		- running time: O(n log n)
 		- no extra space needed 
+
 Artificial Intelligence 
 	- creating sophware agents and making them 'intelligent' 
 		-agents: self driving cars, robots that play chess, etc. 
@@ -220,3 +221,14 @@ Artificial Intelligence
 	- game playing: 	
 		- state space search: solve stuff like the number sliding puzzle 
 		- use heuristics 
+
+GUI
+	- event loop programming: things happen in response to user-initated events (pressing buttons, clicking on things, changing text, etc.)
+	- an event handler is code that responds to a user event (sometimes called listeners)
+	- steps:
+		1. write the code (method/function on object)
+		2. connect the code to the event object (button, text area, etc.)
+	- graphics:
+		- (0,0) is the upper left corner
+			- larger y goes down
+			- larger x goes right 
